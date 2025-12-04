@@ -17,6 +17,7 @@
  */
 
 #include "sleep_inhibitor.h"
+#include <gio/gunixfdlist.h>
 #include <gio/gio.h>
 #include <glib.h>
 #include <iostream>

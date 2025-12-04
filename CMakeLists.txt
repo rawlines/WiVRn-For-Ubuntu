@@ -312,7 +312,8 @@ if (WIVRN_BUILD_DASHBOARD)
     set_target_properties(wivrn-dashboard PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/server)
 endif()
 
-add_subdirectory(tools)
+# We will skip TOOLS build for Ubuntu
+#add_subdirectory(tools)
 
 foreach(TARGET_NAME wivrn wivrn-server wivrn-dashboard wivrn-common wivrn-dissector wivrnctl)
     if(TARGET ${TARGET_NAME})

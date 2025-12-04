@@ -24,6 +24,7 @@
 #include "utils/xdg_base_directory.h"
 #include "utils/xdg_icon_lookup.h"
 
+#include <ranges>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -142,7 +143,7 @@ void read_steam_vr_apps(std::unordered_map<std::string, application> & res)
 			for (auto [locale, items]: i["strings"].items())
 			{
 				if (auto it = items.find("name"); it != items.end())
-					app.name[locale] = *it;
+					app.name[locale] = it->get<std::string>();
 			}
 
 			if (not app.name.contains(""))

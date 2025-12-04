@@ -35,6 +35,7 @@
 
 #include "utils/xdg_base_directory.h"
 #include "wivrn_config.h"
+#include "nlohmann_optional_patch.hpp"
 
 static auto resolve_path(std::filesystem::path path)
 {
@@ -134,11 +135,11 @@ configuration::encoder parse_encoder(const nlohmann::json & item)
 {
 	configuration::encoder e;
 	if (item.contains("encoder"))
-		e.name = item["encoder"];
+		item["encoder"].get_to(e.name);
 
 #define SET_IF(property)              \
 	if (item.contains(#property)) \
-		e.property = item[#property];
+		item[#property].get_to(e.property);
 
 	SET_IF(width);
 	SET_IF(height);

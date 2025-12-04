@@ -46,6 +46,7 @@
 #include "xr/to_string.h"
 #include "xrt/xrt_device.h"
 #include "xrt/xrt_session.h"
+#include <cstdio>
 #include <algorithm>
 #include <chrono>
 #include <magic_enum.hpp>
@@ -291,7 +292,7 @@ wivrn::wivrn_session::wivrn_session(std::unique_ptr<wivrn_connection> connection
 	if (auto system_name = get_info().system_name; !system_name.empty())
 	{
 		system_name += " on WiVRn";
-		strlcpy(xrt_system.base.properties.name, system_name.c_str(), std::size(xrt_system.base.properties.name));
+		snprintf(xrt_system.base.properties.name, sizeof(xrt_system.base.properties.name), "%s", system_name.c_str());
 	}
 }
 

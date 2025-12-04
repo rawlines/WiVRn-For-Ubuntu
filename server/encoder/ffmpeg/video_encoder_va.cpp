@@ -17,6 +17,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+// Missing DRM_FORMAT_R10 definition
+#ifndef DRM_FORMAT_R10
+#define DRM_FORMAT_R10 0x20303152
+#endif
+
 // must be included before vulkan_raii
 #include "vk/vk_helpers.h"
 

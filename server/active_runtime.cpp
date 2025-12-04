@@ -23,6 +23,7 @@
 #include "utils/overloaded.h"
 #include "utils/xdg_base_directory.h"
 #include "wivrn_config.h"
+#include <ranges>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
