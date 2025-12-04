@@ -20,3 +20,5 @@ gradle.properties
 local.properties
 compile_commands.json
 !libopenxr_loader.so
+
+json_install/
